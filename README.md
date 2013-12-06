@@ -1,4 +1,4 @@
-# AMQP-Rack
+# rack-amqp
 
 1. `bundle install`
 1. In one terminal, run `ruby rackable.rb simple.ru`
