@@ -9,7 +9,6 @@ racked_app = Rack::Builder.new do
   use Rack::ContentLength
   use Rack::Chunked
   use Rack::CommonLogger, $stderr
-  use Rack::Lint
   run app
 end.to_app
 
