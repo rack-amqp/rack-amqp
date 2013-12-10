@@ -4,6 +4,9 @@ Still building out examples. Racked rails works though with userland at
 least, `cd userland; be ../rack-amqp/bin/raqup config.ru` to start the
 server; use `../sample_client.rb` to query (try `/users`)
 
+`amqurl` is working-ish. `be bin/amqurl test.simple/users.json` should
+get you some detailed stuff
+
 
 # Actors
 
