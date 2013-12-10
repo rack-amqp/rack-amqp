@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rack/amqp/version'
+require 'rack/amqp/curl/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rack-amqp"
-  spec.version       = Rack::Amqp::VERSION
+  spec.name          = "rack-amqp-curl"
+  spec.version       = Rack::AMQP::Curl::VERSION
   spec.authors       = ["Joshua Szmajda"]
   spec.email         = ["josh@optoro.com"]
-  spec.description   = %q{amqp}
-  spec.summary       = %q{amqp}
+  spec.description   = %q{amqp curl}
+  spec.summary       = %q{amqp curl}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -18,9 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "rack"
+  #spec.add_dependency "rack"
   spec.add_dependency "amqp"
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "pry"
 end
