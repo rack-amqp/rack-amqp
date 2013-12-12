@@ -1,6 +1,7 @@
 module Rack
   module AMQP
-    module Curl
+    module Client
+      VERSION = "0.0.1"
     end
   end
 end

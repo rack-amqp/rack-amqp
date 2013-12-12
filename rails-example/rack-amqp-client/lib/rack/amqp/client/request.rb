@@ -1,6 +1,6 @@
 module Rack
   module AMQP
-    module Curl
+    module Client
       class Request
 
         attr_accessor :routing_key, :request_path, :body, :request_id, :callback_queue, :http_method
