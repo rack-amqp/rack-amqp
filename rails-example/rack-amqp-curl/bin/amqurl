@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'optparse'
+require 'pp'
 require 'rack/amqp/curl'
 
 options = {
@@ -32,7 +33,7 @@ EM.run do
     client = Rack::AMQP::Curl::Client.new( options[:broker_connection] )
     response = client.request(url, options)
     puts "response:"
-    p response.payload
+    pp response
     EM.stop
   }.resume
 end

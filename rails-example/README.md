@@ -7,6 +7,15 @@ server; use `../sample_client.rb` to query (try `/users`)
 `amqurl` is working-ish. `be bin/amqurl test.simple/users.json` should
 get you some detailed stuff
 
+# TODO
+* handle response from server with proper data wrapping
+* handle multiple correlation ids properly
+* timeout on client
+* some kinda tests
+* handle body chunk transmission
+* figure out why rails puts content length in the body
+* handle command-line options for server and client
+
 
 # Actors
 

@@ -23,7 +23,7 @@ module Rack
           f = Fiber.current
           ->(args) {
             meta, payload = args
-            @response = Response.new(meta, payload)
+            @response = Response.new(meta.attributes, payload)
             f.resume @response
           }
         end
@@ -36,6 +36,7 @@ module Rack
             reply_to: callback_queue.name,
             type: http_method,
             app_id: user_agent,
+            timestamp: Time.now.to_i,
             headers: headers,
             routing_key: routing_key
           }

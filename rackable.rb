@@ -41,7 +41,10 @@ def handle_request(app, uri)
   response << "Response code: #{response_code}"
   response << "Headers: #{headers.inspect}"
   response << "Body Follows:"
-  body.each{|chunk| response << chunk }
+  body.each do |chunk|
+    puts "chunk: #{chunk.inspect}"
+    response << chunk
+  end
   body.close
   response.join("\n")
 end

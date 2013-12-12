@@ -18,12 +18,9 @@ module Rack
           request = Request.new(@correlation_id += 1, http_method, uri, "", headers: {})
           callback_queue = create_callback_queue(request.callback)
           request.callback_queue = callback_queue
-          puts "callbacks built"
 
-          puts "publishing"
           amqp_channel.direct('').publish(request.payload, request.publishing_options)
 
-          puts "waiting"
           response = request.reply_wait(timeout)
           response
         end
@@ -41,8 +38,6 @@ module Rack
           ::AMQP::Queue.new(amqp_channel, "", auto_delete: true, exclusive: true, &sync_cb(Fiber.current))
           queue, declare_ok = Fiber.yield
 
-          puts "built"
-
           Fiber.new do
             queue.subscribe &sync_cb(Fiber.current)
             loop { cb.call(Fiber.yield) }
@@ -54,7 +49,6 @@ module Rack
           @amqp_client = sync do |f|
             ::AMQP.connect(broker_options, &sync_cb(f))
           end
-          puts "client get!"
           # TODO Handle errors nicely
           @amqp_channel = ::AMQP::Channel.new(@amqp_client)
         end
