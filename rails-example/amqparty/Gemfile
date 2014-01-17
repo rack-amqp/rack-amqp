@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gemspec
-
+# Specify your gem's dependencies in amqparty.gemspec
 gem "rack-amqp-client", path: '../rack-amqp-client'
-gem "httparty"
+gemspec
