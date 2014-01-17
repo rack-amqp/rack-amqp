@@ -12,7 +12,8 @@ module AMQParty
           method_name = http_method.name.split(/::/).last.upcase
           response = client.request(uri.to_s.sub('amqp://',''), {http_method: method_name, timeout: 5})
           # TODO convert repsonse into HTTPResponse and assign to last_response
-          http_response = Net::HTTPResponse.new("1.1", response.response_code, "Found")
+          klass = Net::HTTPResponse.send(:response_class,response.response_code.to_s)
+          http_response = klass.new("1.1", response.response_code, "Found")
           response.headers.each_pair do |key, value|
             http_response.add_field key, value
           end
