@@ -10,9 +10,15 @@ module AMQParty
       Rack::AMQP::Client.with_client(host: 'localhost') do |client|
         Timeout.timeout(5) do
           method_name = http_method.name.split(/::/).last.upcase
-          self.last_response = client.request(uri.to_s.sub('amqp://',''), {http_method: method_name, timeout: 5})
-          puts "response:"
-          pp self.last_response
+          response = client.request(uri.to_s.sub('amqp://',''), {http_method: method_name, timeout: 5})
+          # TODO convert repsonse into HTTPResponse and assign to last_response
+          http_response = Net::HTTPResponse.new("1.1", response.response_code, "Found")
+          response.headers.each_pair do |key, value|
+            http_response.add_field key, value
+          end
+          http_response.body = response.payload
+          http_response.send(:instance_eval, "def body; @body; end") # TODO GIANT HACK
+          self.last_response = http_response
         end
       end
       #self.last_response = http.request(@raw_request) do |http_response|
