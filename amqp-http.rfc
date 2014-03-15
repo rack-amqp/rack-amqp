@@ -1,0 +1,45 @@
+WORKING ref this [ftp://ftp.rfc-editor.org/in-notes/rfc-editor/tutorial63.pdf]
+
+                            AMQP-HTTP
+
+                           J. Szmajda
+
+Abstract
+
+  AMQP is a standardized protocol for message queueing. HTTP is a standardized
+protocol for hypertext transfer. This document attempts to combine the two.
+
+Table of Contents
+
+1.  Introduction
+
+  The AMQP protocol defines a number of commonly-used headers.  When deciding
+how to send messages over AMQP, a developer has the world to choose from in
+using these common headers or not.
+
+Similarly, HTTP defines a common pattern for messaging. In some scenarios, it
+is beneficial to manipulate http-based applications to communicate between
+themselves over AMQP. When doing so, the developer has liberty to decide how
+those communications happen.
+
+This document attempts to define a common pattern for sending http-like
+messages over AMQP in the hopes that if other clients and servers embrace this
+pattern then communication over AMQP will be easier
+
+2.  AMQP Standardizes Headers
+
+[http://docs.oasis-open.org/amqp/core/v1.0/amqp-core-complete-v1.0.pdf] page 84
+
+  According to the AMQP spec (TODO reference), the following well-known headers
+are used in teh following ways:
+
+    
+
+
+x.  Security Considerations
+
+  Have to put stuff here.
+
+x.  IANA Considerations
+
+  Probably none.
