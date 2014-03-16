@@ -24,7 +24,7 @@ Fork a project, submit a pull request.
 
 ## License
 
-TBD
+MIT
 
 ## Other
 
