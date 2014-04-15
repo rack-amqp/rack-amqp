@@ -1,0 +1,31 @@
+PATH
+  remote: ../../amqparty
+  specs:
+    amqparty (0.0.2)
+      httparty (>= 0.10.0)
+      rack-amqp-client
+
+PATH
+  remote: ../../rack-amqp-client
+  specs:
+    rack-amqp-client (0.0.1)
+      bunny
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    amq-protocol (1.9.2)
+    bunny (1.2.1)
+      amq-protocol (>= 1.9.2)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.1)
+    multi_xml (0.5.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  amqparty!
+  rack-amqp-client!

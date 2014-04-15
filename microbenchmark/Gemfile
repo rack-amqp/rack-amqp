@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem "rack-amqp-client", path: '../../rack-amqp-client'
+gem "amqparty", path: '../../amqparty'
